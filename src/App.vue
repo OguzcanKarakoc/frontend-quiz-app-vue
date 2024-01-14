@@ -1,10 +1,11 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Toggle from "./components/Toggle.vue";
 </script>
 
 <template>
-   <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+  <div>
+    <h1 className="bg-red text-white relative block">Hello world!</h1>
+    <div class="button">Button Idle</div>
+    <Toggle />
+  </div>
 </template>
