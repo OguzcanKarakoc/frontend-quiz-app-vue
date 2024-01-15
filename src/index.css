@@ -18,6 +18,10 @@
     --color-purple: 167 41 245;
     --color-pure-white: 255 255 255;
   }
+
+  * {
+    @apply transition-colors duration-200 font-rubik
+  }
 }
 
 @layer components {

@@ -15,10 +15,17 @@ export default {
         'green': '#26D782',
         'red': '#EE5454',
       },
+      borderWidth: {
+        '3': '3px'
+      },
+      padding: {
+        '4.5': '18px'
+      },
       fontFamily: {
         'rubik': ["Rubik", "sans-serif"]
       }
     },
   },
+  darkMode: 'class',
   plugins: [],
 };
