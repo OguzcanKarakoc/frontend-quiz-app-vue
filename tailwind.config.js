@@ -23,6 +23,19 @@ export default {
       },
       fontFamily: {
         'rubik': ["Rubik", "sans-serif"]
+      },
+      fontSize: {
+        '2.5xl': '28px',
+        '4.5xl': '40px',
+      },
+      animation: {
+        'scale': 'scalePulse .3s ease-in-out'
+      },
+      keyframes: {
+        scalePulse: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(.95)' },
+        }
       }
     },
   },
