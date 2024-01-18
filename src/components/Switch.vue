@@ -10,13 +10,13 @@ const toggleClass = ref("");
 watch(enabled, (newEnabled) => {
   model.value = newEnabled;
   toggleClass.value = enabled.value ? "translate-x-5" : "translate-x-0";
-});
+}, { immediate: true });
 </script>
 
 <template>
   <button
     type="button"
-    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-purple transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2"
+    class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-purple transition-colors duration-200 ease-in-out dark:ring-offset-dark-navy focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2"
     role="switch"
     @click="toggle()"
   >

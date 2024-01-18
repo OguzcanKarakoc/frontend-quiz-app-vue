@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
-import SvgCorrect from "@/assets/images/icon-correct.svg"
-import SvgIncorrect from "@/assets/images/icon-incorrect.svg"
+import SvgCorrect from "@/assets/images/icon-correct.svg";
+import SvgIncorrect from "@/assets/images/icon-incorrect.svg";
 
 const model = defineModel();
 
@@ -24,8 +24,8 @@ const props = defineProps({
     },
     text: String,
     correct: {
-      type: [Boolean, null],
-      default: null
+        type: [Boolean, null],
+        default: null,
     },
     color: String,
 });
@@ -42,11 +42,16 @@ const pickedCorrectAnswer = computed(() => {
     return model.value == answer;
 });
 
+defineOptions({
+    inheritAttrs: false,
+});
+
 // console.log(props.correct);
 </script>
 
 <template>
     <input
+        v-bind="$attrs"
         type="radio"
         :id="id"
         :value="value"
@@ -55,7 +60,7 @@ const pickedCorrectAnswer = computed(() => {
     />
     <label
         :for="id"
-        class="group flex  items-center gap-8 self-stretch rounded-3xl border-3 bg-pure-white px-5 py-4.5 shadow"
+        class="group flex items-center gap-8 self-stretch rounded-3xl border-3 bg-pure-white px-5 py-4.5 shadow"
         :class="{
             'border-purple': model == value,
             'cursor-pointer border-pure-white': correct == null,
@@ -82,10 +87,10 @@ const pickedCorrectAnswer = computed(() => {
                 >
             </div>
         </slot>
-        <div class="text-[28px] font-medium leading-7 text-dark-navy flex-grow">
+        <div class="flex-grow text-[28px] font-medium leading-7 text-dark-navy">
             {{ text }}
         </div>
-        <SvgCorrect class="w-8 h-8" v-if="correct" />
-        <SvgIncorrect class="w-8 h-8" v-else-if="correct == false" />
+        <SvgCorrect class="h-8 w-8" v-if="correct" />
+        <SvgIncorrect class="h-8 w-8" v-else-if="correct == false" />
     </label>
 </template>

@@ -36,6 +36,14 @@ export default {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(.95)' },
         }
+      },
+      backgroundImage: {
+        'pattern-desktop-light': "url('/src/assets/images/pattern-background-desktop-light.svg')",
+        'pattern-desktop-dark': "url('/src/assets/images/pattern-background-desktop-dark.svg')",
+        'pattern-tablet-light': "url('/src/assets/images/pattern-background-tablet-light.svg')",
+        'pattern-tablet-dark': "url('/src/assets/images/pattern-background-tablet-dark.svg')",
+        'pattern-mobile-light': "url('/src/assets/images/pattern-background-mobile-light.svg')",
+        'pattern-mobile-dark': "url('/src/assets/images/pattern-background-mobile-dark.svg')",
       }
     },
   },

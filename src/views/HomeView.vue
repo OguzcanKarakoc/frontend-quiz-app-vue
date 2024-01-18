@@ -16,37 +16,21 @@ const goToQuiz = (index) => {
 </script>
 
 <template>
-    <div class="flex flex-col items-start gap-4 self-stretch">
+    <div class="flex flex-col items-start gap-4 lg:gap-12 self-stretch">
         <div class="flex flex-col items-start gap-2">
-            <h1 class="font-rubik text-[40px] font-light leading-10 text-dark-navy">
+            <h1 class="font-rubik text-4.5xl md:text-6xl font-light text-dark-navy dark:text-pure-white">
                 Welcome to the
             </h1>
-            <h1 class="font-rubik text-[40px] font-medium leading-10 text-dark-navy">
+            <h1 class="font-rubik text-4.5xl md:text-6xl font-medium text-dark-navy dark:text-pure-white">
                 Frontend Quiz!
             </h1>
         </div>
-        <p class="leading self-stretch font-rubik text-sm italic text-grey-navy">
+        <p class="leading self-stretch font-rubik text-sm md:text-xl italic text-grey-navy dark:text-light-bluish">
             Pick a subject to get started
         </p>
     </div>
-    <div class="flex flex-col items-start gap-3 self-stretch">
+    <div class="flex flex-col items-start gap-3 md:gap-6 self-stretch basis-1/2">
         <HomeButton :quiz="quiz" @click="() => goToQuiz(index)"
             v-for="(quiz, index) in quizStore.quizzes" />
-        <!-- <Choice :id="index"
-            :icon="quiz.icon"
-            :value="index"
-            :text="quiz.title"
-            v-model="pickedQuiz"
-            v-for="(quiz, index) in quizStore.quizzes">
-            <template #icon>
-                <div class="flex h-14 w-14 items-center justify-center rounded-xl"
-                    :style="{
-                        backgroundColor: quizStore.BG_COLORS[quiz.title],
-                    }">
-                    <img :src="quiz.icon"
-                        class="h-10 w-10" />
-                </div>
-            </template>
-        </Choice> -->
     </div>
 </template>

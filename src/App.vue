@@ -1,91 +1,29 @@
 <script setup>
-import DarkModeSwitch from "./components/DarkModeSwitch.vue";
-import Choice from "./components/Choice.vue";
-import { computed, onMounted, ref, defineAsyncComponent } from "vue";
-import Quiz from "./components/Quiz.vue";
-import {useQuizStore} from '@/stores/quiz'
+import { onMounted } from "vue";
+import { useQuizStore } from "@/stores/quiz";
 import TheHeader from "./components/TheHeader.vue";
-// const data = ref(null);
 
-const quizStore = useQuizStore()
+const quizStore = useQuizStore();
 
 onMounted(async () => {
     const res = await fetch("./data.json");
 
     if (!res.ok) throw Error("Failed in retrieving quiz");
-    
-    const jsonResponse =  await res.json();
-    // data.value = jsonResponse;
-    quizStore.setQuizzes(jsonResponse)
+
+    const jsonResponse = await res.json();
+    quizStore.setQuizzes(jsonResponse);
 });
-
-
-// const quizes = computed(() => {
-//     return (
-//         data.value?.quizzes.map((quiz) => {
-//             return {
-//                 ...quiz,
-//                 icon: defineAsyncComponent(
-//                     () => import(`${quiz.icon}?component`),
-//                 ),
-//             };
-//         }) ?? []
-//     );
-// });
-
-// const currentQuiz = computed(() => {
-//     return pickedQuiz.value != null
-//         ? data.value?.quizzes[pickedQuiz.value]
-//         : null;
-// });
-
-console.log();
-
-const pickedAnswer = ref(null);
-const pickedQuiz = ref(null);
 </script>
 
 <template>
-    <div class="h-screen bg-light-grey dark:bg-navy">
-        <TheHeader />
-        
-        <div class="flex flex-grow flex-col items-center gap-10 self-stretch px-6 pt-8">
+    <div
+        class="flex h-screen flex-col items-center justify-center self-stretch bg-light-grey bg-pattern-mobile-light bg-cover bg-no-repeat dark:bg-dark-navy dark:bg-pattern-mobile-dark md:bg-pattern-tablet-light dark:md:bg-pattern-tablet-dark lg:bg-pattern-desktop-light dark:lg:bg-pattern-desktop-dark"
+    >
+        <TheHeader class="relative z-10 max-w-screen-xl" />
+        <main
+            class="relative z-10 flex w-full max-w-screen-xl flex-grow flex-col items-center gap-10 px-6 pt-8 md:gap-16 lg:flex-row lg:items-start lg:justify-between"
+        >
             <RouterView />
-            <template v-if="quizStore.currentQuiz">
-                <Quiz :questions="quizStore.currentQuiz.questions" />
-            </template>
-            <template v-else>
-                <div class="flex flex-col items-start gap-4 self-stretch">
-                    <div class="flex flex-col items-start gap-2">
-                        <h1 class="font-rubik text-[40px] font-light leading-10 text-dark-navy">
-                            Welcome to the
-                        </h1>
-                        <h1 class="font-rubik text-[40px] font-medium leading-10 text-dark-navy">
-                            Frontend Quiz!
-                        </h1>
-                    </div>
-                    <p class="self-stretch font-rubik text-sm italic leading-[21px] text-grey-navy">
-                        Pick a subject to get started
-                    </p>
-                </div>
-                <div class="flex flex-col items-start gap-3 self-stretch">
-                    <Choice :id="index"
-                        :icon="quiz.icon"
-                        :value="index"
-                        :text="quiz.title"
-                        v-model="pickedQuiz"
-                        v-for="(quiz, index) in quizStore.quizzes">
-                        <template #icon>
-                            <div class="flex h-14 w-14 items-center justify-center rounded-xl"
-                                :style="{
-                                    backgroundColor: quizStore.BG_COLORS[quiz.title],
-                                }">
-                                <img :src="quiz.icon" class="h-10 w-10" />
-                            </div>
-                        </template>
-                    </Choice>
-                </div>
-            </template>
-        </div>
+        </main>
     </div>
 </template>
