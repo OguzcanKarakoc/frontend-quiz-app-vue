@@ -2,6 +2,7 @@
 import HomeButton from "@/components/HomeButton.vue";
 import { useQuizStore } from "@/stores/quiz";
 import { BG_COLORS } from "@/utils/config";
+import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -10,6 +11,10 @@ const quizStore = useQuizStore()
 const props = defineProps({
     quizzes: Array,
 });
+
+onMounted(() => {
+    quizStore.reset()
+})
 
 const goToQuiz = (index) => {
     quizStore.currentQuiz = props.quizzes[index]

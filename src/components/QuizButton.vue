@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from "vue";
 import IconContainer from "./IconContainer.vue";
 
 const props = defineProps({
