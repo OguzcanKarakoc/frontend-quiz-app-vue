@@ -25,9 +25,7 @@ watch(
 </script>
 
 <template>
-    <div
-        class="flex h-4 flex-col items-start justify-center gap-2 self-stretch rounded-full bg-pure-white p-1 dark:bg-navy"
-    >
-        <div ref="bar" class="h-2 shrink-0 rounded-full bg-purple"></div>
+    <div class="flex h-4 flex-col items-start justify-center gap-2 self-stretch rounded-full bg-pure-white p-1 dark:bg-navy">
+        <div ref="bar" class="h-2 shrink-0 rounded-full bg-purple transition-all"></div>
     </div>
 </template>

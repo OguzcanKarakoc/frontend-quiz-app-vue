@@ -37,6 +37,9 @@ export default {
           '50%': { transform: 'scale(.95)' },
         }
       },
+      lineHeight: {
+        'full': '100%',
+      },
       backgroundImage: {
         'pattern-desktop-light': "url('/src/assets/images/pattern-background-desktop-light.svg')",
         'pattern-desktop-dark': "url('/src/assets/images/pattern-background-desktop-dark.svg')",

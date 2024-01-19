@@ -26,6 +26,6 @@
 
 @layer components {
   .button {
-    @apply bg-purple shadow text-pure-white text-[28px] not-italic leading-7 p-8 flex justify-center items-center gap-2 self-stretch rounded-3xl hover:bg-gradient-to-b hover:from-pure-white/50 hover:to-pure-white/50 hover:cursor-pointer;
+    @apply bg-purple md:h-auto md:p-8 md:text-2.5xl shadow text-pure-white text-lg not-italic h-14 leading-full p-3 flex justify-center items-center gap-2 self-stretch rounded-2xl hover:bg-gradient-to-b hover:from-pure-white/50 hover:to-pure-white/50 hover:cursor-pointer;
   }
 }
