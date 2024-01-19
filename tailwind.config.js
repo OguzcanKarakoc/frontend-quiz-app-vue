@@ -4,7 +4,6 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 'purple': '#A729F5',
         'purple': 'rgb(var(--color-purple) / <alpha-value>)',
         'navy': '#313E51',
         'dark-navy': '#3C4D66',
