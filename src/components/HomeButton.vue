@@ -26,9 +26,9 @@ const handleButtonClick = () => {
         :class="{ 'animate-scale': isClicked }">
         <IconContainer :icon="icon"
             :color="iconColor" />
-        <div
+        <span
             class="flex-grow text-start text-lg font-medium leading-full text-dark-navy dark:text-pure-white md:text-2.5xl">
             {{ text }}
-        </div>
+        </span>
     </button>
 </template>
